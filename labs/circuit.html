@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Конструктор электрических цепей онлайн — собери свою схему | Фаза Понимания</title>
+<meta name="description" content="Собери электрическую цепь онлайн: батареи, резисторы, лампы, ключи, амперметр и вольтметр. Мгновенный расчёт токов и напряжений, последовательное и параллельное соединение, отчёт по работе.">
+<link rel="canonical" href="https://faza-fizika.ru/labs/circuit.html">
+<meta name="theme-color" content="#050b18">
+<link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Конструктор электрических цепей — собери свою схему">
+<meta property="og:image" content="https://faza-fizika.ru/img/og-cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-root="../" data-tip="lab">
+<div class="atmo" aria-hidden="true"><div class="atmo__glow atmo__glow--a"></div><div class="atmo__glow atmo__glow--b"></div><div class="atmo__noise"></div></div>
+<div class="spot" aria-hidden="true"></div>
+<header class="nav">
+<div class="wrap nav__in">
+<a class="logo" href="../index.html" aria-label="На главную"><svg viewBox="0 0 100 92" aria-hidden="true"><g stroke="#fff" stroke-width="5" fill="none" stroke-linejoin="round"><path d="M50 4 L96 88 H4 Z"/><path d="M50 34 L66 46 L62 66 H38 L34 46 Z" stroke-width="3.5"/></g><circle cx="50" cy="54" r="7" fill="#ffb35c"/></svg><span>Фаза Понимания</span></a>
+<nav class="nav__links" aria-label="Разделы"><a href="../index.html#labs" class="is-active">Лаборатория</a><a href="../index.html#zadacha">Задача дня</a><a href="../index.html#tests">Тесты</a><a href="../index.html#plus">Фаза+</a></nav>
+<button class="nav__search" data-search aria-label="Поиск"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span>Поиск</span><kbd>Ctrl K</kbd></button>
+<button class="nav__burger" aria-label="Меню"><span></span></button>
+</div>
+</header>
+<main class="wrap">
+<div class="page-head">
+<div class="crumbs"><a href="../index.html">Главная</a>/<a href="../index.html#labs">Лаборатория</a>/<span>Конструктор цепей</span></div>
+<span class="kicker">лабораторная № 6 · электричество · 8–11 класс</span>
+<h1 class="glow">Конструктор цепей</h1>
+<p>Собери свою схему: батареи, резисторы, лампы, ключи, амперметры и вольтметры. Цепь рассчитывается мгновенно — лампы светятся, стрелки приборов оживают, а если ошибёшься, сработает защита от короткого замыкания.</p>
+</div>
+<div class="lab">
+<div class="lab__stage" style="aspect-ratio: 16 / 10.5"><canvas id="lab" aria-label="Монтажная сетка для сборки электрической цепи" role="img"></canvas></div>
+<div class="lab__panel">
+<div class="lab__box">
+<h3>Элементы</h3>
+<div class="tools" id="tools">
+<button data-t="select" title="Выбрать / переключить ключ"><svg viewBox="0 0 34 22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l10 9-5 1 3 6-3 1-3-6-3 3z"/></svg>выбор</button>
+<button data-t="wire" class="is-on" title="Провод: протяни мышью от узла к узлу"><svg viewBox="0 0 34 22" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 11h28"/><circle cx="3" cy="11" r="2" fill="currentColor"/><circle cx="31" cy="11" r="2" fill="currentColor"/></svg>провод</button>
+<button data-t="res" title="Резистор"><svg viewBox="0 0 34 22" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11h8M25 11h8"/><rect x="9" y="6" width="16" height="10" stroke="#ffb35c"/></svg>резистор</button>
+<button data-t="lamp" title="Лампа"><svg viewBox="0 0 34 22" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11h9M24 11h9"/><circle cx="17" cy="11" r="7"/><path d="M12 6l10 10M22 6L12 16"/></svg>лампа</button>
+<button data-t="batt" title="Батарея"><svg viewBox="0 0 34 22" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11h13M20 11h13M14 3v16"/><path d="M20 7v8" stroke-width="4"/></svg>батарея</button>
+<button data-t="sw" title="Ключ"><svg viewBox="0 0 34 22" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 11h9M24 11h9M10 11l12-7"/><circle cx="10" cy="11" r="1.6" fill="currentColor"/><circle cx="24" cy="11" r="1.6" fill="currentColor"/></svg>ключ</button>
+<button data-t="amm" title="Амперметр — включай последовательно"><svg viewBox="0 0 34 22" fill="none" stroke="#7fb6ff" stroke-width="2"><path d="M1 11h9M24 11h9"/><circle cx="17" cy="11" r="7"/><text x="17" y="15" font-size="10" text-anchor="middle" fill="#eaf1ff" stroke="none" font-weight="700">A</text></svg>амперметр</button>
+<button data-t="volt" title="Вольтметр — включай параллельно"><svg viewBox="0 0 34 22" fill="none" stroke="#7ef0b8" stroke-width="2"><path d="M1 11h9M24 11h9"/><circle cx="17" cy="11" r="7"/><text x="17" y="15" font-size="10" text-anchor="middle" fill="#eaf1ff" stroke="none" font-weight="700">V</text></svg>вольтметр</button>
+<button data-t="erase" title="Ластик"><svg viewBox="0 0 34 22" fill="none" stroke="#ff7b8a" stroke-width="2"><path d="M10 18h16M8 14l9-9 7 7-6 6h-6z"/></svg>ластик</button>
+</div>
+<p class="muted" style="font-size:13.5px">Выбери элемент и щёлкни по линии сетки. Провода удобно протягивать мышью или пальцем от узла к узлу. Инструментом «выбор» можно настроить элемент и щёлкать ключи.</p>
+<div class="sel-box" id="sel" hidden>
+<div class="sel-box__title"><span id="sel-name">Элемент</span><button class="btn btn--ghost btn--sm" id="b-del">Удалить</button></div>
+<div class="ctl"><div class="ctl__top"><label for="c-val" id="c-val-label">Значение</label><output></output></div><input id="c-val" type="range" min="1" max="100" step="1" value="10"></div>
+<div class="btn-row"><button class="btn btn--ghost btn--sm" id="b-flip">⇄ Сменить полярность</button><button class="btn btn--ghost btn--sm" id="b-toggle">Ключ</button></div>
+<div class="mono muted" id="sel-info" style="font-size:12.5px"></div>
+</div>
+<div class="warn-line" id="warn" hidden>⚡ Короткое замыкание! Ток через источник огромный — в реальной цепи провода раскалились бы. Добавь нагрузку или разомкни ключ.</div>
+</div>
+<div class="lab__box">
+<h3>Готовые схемы</h3>
+<div class="btn-row"><button class="btn btn--ghost btn--sm" data-preset="series">Последовательная</button><button class="btn btn--ghost btn--sm" data-preset="parallel">Параллельная</button><button class="btn btn--ghost btn--sm" data-preset="mixed">Смешанная</button><button class="btn btn--ghost btn--sm" id="b-clearall">Очистить всё</button></div>
+<h3>Источник</h3>
+<div class="readouts">
+<div class="readout"><span>ток через источник</span><b id="r-i">—</b></div>
+<div class="readout"><span>напряжение на клеммах</span><b id="r-u">—</b></div>
+<div class="readout"><span>мощность ε·I</span><b id="r-p">—</b></div>
+<div class="readout"><span>R внешней цепи</span><b id="r-req">—</b></div>
+</div>
+</div>
+</div>
+</div>
+<div class="lab-doc">
+<div class="lab__box">
+<h3>Журнал показаний приборов</h3>
+<div class="btn-row"><button class="btn btn--primary btn--sm" id="b-rec">Записать показания приборов</button><button class="btn btn--ghost btn--sm" id="b-clearlog">Очистить</button><button class="btn btn--outline btn--sm" data-report>📄 Отчёт</button></div>
+<table class="tbl" id="tbl"><thead><tr><th>опыт</th><th>прибор</th><th>показание</th><th>где стоит</th></tr></thead><tbody></tbody></table>
+</div>
+<div class="lab__box">
+<h3>Ход работы</h3>
+<p><b>Цель:</b> проверить законы последовательного и параллельного соединения: <span class="formula">I = const, U = U₁ + U₂</span> и <span class="formula">U = const, I = I₁ + I₂</span>.</p>
+<ol>
+<li>Загрузи «Последовательную» схему. Переставляй амперметр в разные места цепи и записывай показания. Меняется ли ток?</li>
+<li>Подключи вольтметр поочерёдно к каждому резистору и к лампе. Сравни сумму напряжений с напряжением на клеммах источника.</li>
+<li>Загрузи «Параллельную» схему. Сравни токи в ветвях с общим током. Выполняется ли I = I₁ + I₂?</li>
+<li>Разомкни ключ инструментом «выбор». Что происходит с лампой в последовательной и в параллельной цепи?</li>
+<li>Собери свою схему с нуля: батарея, две лампы и ключ, который выключает только одну из них.</li>
+<li>Нажми «📄 Отчёт» — элементы цепи с токами, напряжениями и мощностями и журнал приборов попадут в отчёт.</li>
+</ol>
+</div>
+</div>
+<div class="lab-doc">
+<div class="lab__box">
+<h3>Вопросы для самопроверки</h3>
+<div class="qa">
+<details><summary>Почему амперметр включают последовательно, а вольтметр — параллельно?</summary><p>Амперметр почти не имеет сопротивления и должен пропускать через себя весь ток участка. Вольтметр имеет огромное сопротивление и «смотрит» на разность потенциалов, почти не отбирая ток.</p></details>
+<details><summary>Что будет, если включить амперметр параллельно лампе?</summary><p>Его сопротивление ничтожно, поэтому почти весь ток пойдёт через амперметр — лампа погаснет. В реальной цепи прибор может сгореть. Проверь в конструкторе!</p></details>
+<details><summary>Почему в квартире все приборы включены параллельно?</summary><p>Чтобы на каждом было одинаковое напряжение 220 В и чтобы выключение одного прибора не обесточивало остальные.</p></details>
+<details><summary>Две одинаковые лампы соединили последовательно. Ярче они или тусклее, чем одна?</summary><p>Тусклее: общее сопротивление удвоилось, ток уменьшился вдвое, а мощность каждой лампы P = I²R упала в 4 раза.</p></details>
+</div>
+</div>
+<div class="lab__box">
+<h3>Для учителя</h3>
+<p>Конструктор заменяет набор «Электричество» на уроке: каждый ученик собирает схему у себя, а результаты сразу оформляются в отчёт. Хорошее задание на поиск ошибки: соберите цепь с амперметром, включённым параллельно, и попросите класс объяснить, почему не горит лампа.</p>
+<p class="muted" style="font-size:14px">Модель: провода и амперметр ≈ 0,001 Ом, вольтметр 10 МОм, лампа 12 Ом (6 В, 3 Вт), внутреннее сопротивление батареи 0,05 Ом.</p>
+</div>
+</div>
+<div class="hintbar"><div class="emo" data-e="wow"></div><span>Попробуй закоротить батарею проводом — увидишь, почему короткое замыкание опасно. В конструкторе ничего не сгорит 😉</span></div>
+</main>
+<footer class="footer"><div class="wrap"><div class="footer__bottom"><span>© <span data-year>2026</span> Фаза Понимания</span><span><a href="../index.html#labs">← Все лабораторные</a></span></div></div></footer>
+<script src="../js/catalog.js"></script><script src="../js/kit.js"></script><script src="../js/main.js"></script><script src="../js/labs/circuit.js"></script><script src="../js/report.js"></script>
+</body>
+</html>

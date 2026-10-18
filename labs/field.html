@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Электрическое поле зарядов — интерактивная лабораторная по физике | Фаза Понимания</title>
+<meta name="description" content="Перетаскивайте точечные заряды и смотрите, как перестраиваются силовые линии и эквипотенциали. Напряжённость и потенциал в любой точке. Диполь, одноимённые заряды, конденсатор.">
+<link rel="canonical" href="https://faza-fizika.ru/labs/field.html">
+<meta name="theme-color" content="#050b18">
+<link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Электрическое поле, которое можно подвигать">
+<meta property="og:image" content="https://faza-fizika.ru/img/og-cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-root="../" data-tip="lab">
+<div class="atmo" aria-hidden="true"><div class="atmo__glow atmo__glow--a"></div><div class="atmo__glow atmo__glow--b"></div><div class="atmo__noise"></div></div>
+<div class="spot" aria-hidden="true"></div>
+<header class="nav">
+<div class="wrap nav__in">
+<a class="logo" href="../index.html" aria-label="На главную"><svg viewBox="0 0 100 92" aria-hidden="true"><g stroke="#fff" stroke-width="5" fill="none" stroke-linejoin="round"><path d="M50 4 L96 88 H4 Z"/><path d="M50 34 L66 46 L62 66 H38 L34 46 Z" stroke-width="3.5"/></g><circle cx="50" cy="54" r="7" fill="#ffb35c"/></svg><span>Фаза Понимания</span></a>
+<nav class="nav__links" aria-label="Разделы"><a href="../index.html#labs" class="is-active">Лаборатория</a><a href="../index.html#zadacha">Задача дня</a><a href="../index.html#tests">Тесты</a><a href="../index.html#plus">Фаза+</a></nav>
+<button class="nav__search" data-search aria-label="Поиск"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span>Поиск</span><kbd>Ctrl K</kbd></button>
+<button class="nav__burger" aria-label="Меню"><span></span></button>
+</div>
+</header>
+<main class="wrap">
+<div class="page-head">
+<div class="crumbs"><a href="../index.html">Главная</a>/<a href="../index.html#labs">Лаборатория</a>/<span>Электрическое поле</span></div>
+<span class="kicker">лабораторная № 3 · электростатика · 10–11 класс</span>
+<h1 class="glow">Электрическое поле</h1>
+<p>В учебнике поле — одна застывшая картинка. Здесь заряды можно таскать мышью или пальцем: силовые линии и карта потенциала перестраиваются мгновенно. Наведи курсор — увидишь напряжённость и потенциал в этой точке.</p>
+</div>
+<div class="lab">
+<div class="lab__stage"><canvas id="lab" aria-label="Модель электрического поля. Заряды можно перетаскивать, двойной клик удаляет заряд." role="img"></canvas></div>
+<div class="lab__panel">
+<div class="lab__box">
+<h3>Заряды</h3>
+<div class="btn-row"><button class="btn btn--outline btn--sm" id="b-plus">+ заряд</button><button class="btn btn--ghost btn--sm" id="b-minus">− заряд</button><button class="btn btn--ghost btn--sm" id="b-shoot">⚡ Запустить частицу</button></div>
+<div class="sel-box" id="sel" hidden>
+<div class="sel-box__title"><span>Выбранный заряд</span><button class="btn btn--ghost btn--sm" id="b-del">Удалить</button></div>
+<div class="ctl"><div class="ctl__top"><label for="c-q">Величина заряда</label><output></output></div><input id="c-q" type="range" min="-3" max="3" step="1" value="1"></div>
+</div>
+<p class="muted" style="font-size:14px">Клик по заряду — выбрать и менять величину. Перетаскивай мышью или пальцем. Клик по пустому месту — поставить датчик.</p>
+<h3>Готовые конфигурации</h3>
+<div class="btn-row"><button class="btn btn--ghost btn--sm" id="b-single">Одиночный + датчик</button><button class="btn btn--ghost btn--sm" id="b-dipole">Диполь</button><button class="btn btn--ghost btn--sm" id="b-same">Одноимённые</button><button class="btn btn--ghost btn--sm" id="b-cap">Конденсатор</button><button class="btn btn--ghost btn--sm" id="b-reset">Сброс</button></div>
+<label class="toggle">Карта потенциала (эквипотенциали) <input type="checkbox" id="c-pot" checked></label>
+<label class="toggle">Пробный заряд под курсором <input type="checkbox" id="c-probe" checked></label>
+</div>
+<div class="lab__box">
+<h3>Датчик / курсор</h3>
+<div class="readouts">
+<div class="readout"><span>напряжённость E</span><b id="r-e">—</b></div>
+<div class="readout"><span>потенциал φ</span><b id="r-phi">—</b></div>
+<div class="readout"><span>до ближ. заряда</span><b id="r-r">—</b></div>
+<div class="readout"><span>зарядов</span><b id="r-n">2</b></div>
+</div>
+</div>
+</div>
+</div>
+<div class="lab-doc">
+<div class="lab__box">
+<h3>Измерения: проверка E = kq/r²</h3>
+<div class="btn-row"><button class="btn btn--primary btn--sm" id="b-rec">Записать измерение</button><button class="btn btn--ghost btn--sm" id="b-clear">Очистить</button><button class="btn btn--outline btn--sm" data-report>📄 Отчёт</button></div>
+<canvas class="chart" id="chart"></canvas>
+<div class="readout"><span>заряд по наклону графика E(1/r²)</span><b id="r-q">нужно ≥ 2 точки</b></div>
+<table class="tbl" id="tbl"><thead><tr><th>№</th><th>r, см</th><th>E, В/м</th><th>E·r², В·м</th></tr></thead><tbody></tbody></table>
+</div>
+<div class="lab__box">
+<h3>Ход работы</h3>
+<p><b>Цель:</b> изучить картину поля точечных зарядов и проверить закон <span class="formula">E = kq / r²</span>.</p>
+<ol>
+<li>Нажми «Одиночный + датчик». Двигай датчик на расстояния 3, 5, 8, 12, 16 см от заряда и каждый раз нажимай «Записать измерение».</li>
+<li>Посмотри на столбец E·r²: меняется ли он? Что это значит?</li>
+<li>По наклону графика E(1/r²) найди величину заряда. Измени заряд на +3 нКл и повтори опыт.</li>
+<li>Нажми «Диполь» и «Запустить частицу». По какой линии летит частица и где она останавливается?</li>
+<li>Нажми «Одноимённые». Найди датчиком точку, где E = 0. Нажми «Конденсатор» — каким стало поле между пластинами?</li>
+<li>Нажми «📄 Отчёт» — таблица, график и расчёт заряда попадут в отчёт.</li>
+</ol>
+<p><b>Вывод:</b> линии начинаются на «+» и заканчиваются на «−», не пересекаются и всегда перпендикулярны эквипотенциалям. Между пластинами конденсатора поле почти однородное.</p>
+</div>
+<div class="lab__box">
+<h3>Вопросы для самопроверки</h3>
+<div class="qa">
+<details><summary>Во сколько раз уменьшится E, если расстояние до заряда увеличить в 3 раза?</summary><p>В 9 раз: E ∝ 1/r².</p></details>
+<details><summary>Почему силовые линии не пересекаются?</summary><p>В каждой точке у поля одно направление вектора E. Если бы линии пересеклись, в точке пересечения было бы два направления.</p></details>
+<details><summary>Где у двух одинаковых зарядов напряжённость равна нулю?</summary><p>Ровно посередине: поля зарядов равны по модулю и направлены в противоположные стороны.</p></details>
+<details><summary>Как связаны силовые линии и эквипотенциальные поверхности?</summary><p>Они перпендикулярны. Вдоль эквипотенциали работа поля равна нулю, значит сила (и E) направлена поперёк неё.</p></details>
+</div>
+</div>
+</div>
+<div class="hintbar"><div class="emo" data-e="wow"></div><span>Нажми «Конденсатор» — и увидишь, почему поле между пластинами называют однородным.</span></div>
+</main>
+<footer class="footer"><div class="wrap"><div class="footer__bottom"><span>© <span data-year>2026</span> Фаза Понимания</span><span><a href="../index.html#labs">← Все лабораторные</a></span></div></div></footer>
+<script src="../js/catalog.js"></script><script src="../js/kit.js"></script><script src="../js/main.js"></script><script src="../js/labs/field.js"></script><script src="../js/report.js"></script>
+</body>
+</html>

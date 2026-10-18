@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Математический маятник — интерактивная лабораторная работа по физике | Фаза Понимания</title>
+<meta name="description" content="Онлайн-лабораторная: измерьте период математического маятника на Земле, Луне и Марсе, постройте график T²(L) и найдите ускорение свободного падения. Бесплатно, в браузере.">
+<link rel="canonical" href="https://faza-fizika.ru/labs/pendulum.html">
+<meta name="theme-color" content="#050b18">
+<link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Математический маятник — лабораторная онлайн">
+<meta property="og:description" content="Найди g по графику T²(L). Интерактивная лабораторная работа.">
+<meta property="og:image" content="https://faza-fizika.ru/img/og-cover.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-root="../" data-tip="lab">
+<div class="atmo" aria-hidden="true"><div class="atmo__glow atmo__glow--a"></div><div class="atmo__glow atmo__glow--b"></div><div class="atmo__noise"></div></div>
+<div class="spot" aria-hidden="true"></div>
+<header class="nav">
+<div class="wrap nav__in">
+<a class="logo" href="../index.html" aria-label="На главную">
+<svg viewBox="0 0 100 92" aria-hidden="true"><g stroke="#fff" stroke-width="5" fill="none" stroke-linejoin="round"><path d="M50 4 L96 88 H4 Z"/><path d="M50 34 L66 46 L62 66 H38 L34 46 Z" stroke-width="3.5"/></g><circle cx="50" cy="54" r="7" fill="#ffb35c"/></svg>
+<span>Фаза Понимания</span>
+</a>
+<nav class="nav__links" aria-label="Разделы">
+<a href="../index.html#labs" class="is-active">Лаборатория</a><a href="../index.html#zadacha">Задача дня</a><a href="../index.html#tests">Тесты</a><a href="../index.html#plus">Фаза+</a>
+</nav>
+<button class="nav__search" data-search aria-label="Поиск"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span>Поиск</span><kbd>Ctrl K</kbd></button>
+<button class="nav__burger" aria-label="Меню"><span></span></button>
+</div>
+</header>
+<main class="wrap">
+<div class="page-head">
+<div class="crumbs"><a href="../index.html">Главная</a>/<a href="../index.html#labs">Лаборатория</a>/<span>Маятник</span></div>
+<span class="kicker">лабораторная № 1 · механика · 9–11 класс</span>
+<h1 class="glow">Математический маятник</h1>
+<p>Почему у часов с маятником именно такой ход? Измерь период колебаний при разной длине нити, построй график и найди ускорение свободного падения — на Земле и на других планетах.</p>
+</div>
+<div class="lab">
+<div class="lab__stage"><canvas id="lab" aria-label="Модель маятника. Груз можно оттянуть мышью или пальцем." role="img"></canvas></div>
+<div class="lab__panel">
+<div class="lab__box">
+<h3>Параметры</h3>
+<div class="ctl"><div class="ctl__top"><label for="c-len">Длина нити L</label><output></output></div><input id="c-len" type="range" min="0.2" max="2" step="0.05" value="1"></div>
+<div class="ctl"><div class="ctl__top"><label for="c-amp">Начальный угол</label><output></output></div><input id="c-amp" type="range" min="5" max="70" step="1" value="15"></div>
+<div class="ctl"><div class="ctl__top"><span>Планета</span></div>
+<div class="seg" id="c-planet"><button data-v="9.81" class="is-on">Земля</button><button data-v="1.62">Луна</button><button data-v="3.71">Марс</button><button data-v="24.79">Юпитер</button></div></div>
+<div class="ctl"><div class="ctl__top"><span>Материал шарика</span></div>
+<div class="seg" id="c-mat"><button data-v="steel" class="is-on"><i class="swatch" style="color:#c9d3e6;background:#c9d3e6"></i>сталь</button><button data-v="lead"><i class="swatch" style="color:#9aa3b5;background:#9aa3b5"></i>свинец</button><button data-v="wood"><i class="swatch" style="color:#d9a066;background:#d9a066"></i>дерево</button><button data-v="foam"><i class="swatch" style="color:#f4f1ea;background:#f4f1ea"></i>пенопласт</button></div></div>
+<label class="toggle">Сопротивление воздуха <input type="checkbox" id="c-damp"></label>
+<div class="btn-row"><button class="btn btn--ghost btn--sm" id="b-reset">↺ Запустить заново</button></div>
+</div>
+<div class="lab__box">
+<h3>Показания</h3>
+<div class="readouts">
+<div class="readout"><span>время</span><b id="r-t">0 с</b></div>
+<div class="readout"><span>колебаний</span><b id="r-n">0</b></div>
+<div class="readout"><span>T измеренный</span><b id="r-tm">…</b></div>
+<div class="readout"><span>T = 2π√(L/g)</span><b id="r-tt">—</b></div>
+<div class="readout"><span>масса шарика</span><b id="r-m">—</b></div>
+<div class="readout"><span>амплитуда сейчас</span><b id="r-amp">—</b></div>
+</div>
+</div>
+</div>
+</div>
+<div class="lab-doc">
+<div class="lab__box">
+<h3>Измерения: график T²(L)</h3>
+<div class="btn-row"><button class="btn btn--primary btn--sm" id="b-rec">Записать точку</button><button class="btn btn--ghost btn--sm" id="b-clear">Очистить</button><button class="btn btn--outline btn--sm" data-report>📄 Отчёт</button></div>
+<canvas class="chart" id="chart"></canvas>
+<div class="readout"><span>g по наклону графика: g = 4π² / k</span><b id="r-g">нужно ≥ 2 точки</b></div>
+<table class="tbl" id="tbl"><thead><tr><th>№</th><th>L, м</th><th>T, с</th><th>T², с²</th><th>шарик</th></tr></thead><tbody></tbody></table>
+</div>
+<div class="lab__box">
+<h3>Ход работы</h3>
+<p><b>Цель:</b> проверить формулу <span class="formula">T = 2π√(L/g)</span> и найти ускорение свободного падения.</p>
+<ol>
+<li>Выбери планету «Земля», угол 10–15°. Сопротивление воздуха выключи.</li>
+<li>Поставь длину 0,4 м. Дождись 2–3 колебаний и нажми «Записать точку».</li>
+<li>Повтори для L = 0,8; 1,2; 1,6 и 2,0 м.</li>
+<li>Посмотри на график: точки T²(L) легли на прямую? Почему так должно быть?</li>
+<li>Сравни найденное g с табличным 9,81 м/с². Повтори опыт для Луны и Марса.</li>
+<li>Смени материал шарика (сталь → пенопласт) при той же длине. Изменился ли период? А теперь включи сопротивление воздуха — какой шарик затухает быстрее и почему?</li>
+<li>Нажми «📄 Отчёт», впиши фамилию и вывод — отчёт можно распечатать или сохранить в PDF.</li>
+</ol>
+<p><b>Вывод:</b> T² пропорционален L, коэффициент пропорциональности равен 4π²/g. Масса груза в формулу не входит.</p>
+</div>
+</div>
+<div class="lab-doc">
+<div class="lab__box">
+<h3>Вопросы для самопроверки</h3>
+<div class="qa">
+<details><summary>Как изменится период, если длину нити увеличить в 4 раза?</summary><p>Увеличится в 2 раза: T ∝ √L, а √4 = 2.</p></details>
+<details><summary>Зависит ли период от массы груза?</summary><p>Нет. В формулу T = 2π√(L/g) масса не входит — тяжёлый и лёгкий груз на одинаковой нити качаются в такт.</p></details>
+<details><summary>Почему на Луне маятник качается медленнее?</summary><p>Там g в 6 раз меньше, значит период больше в √6 ≈ 2,45 раза.</p></details>
+<details><summary>Поставь угол 70°. Совпадают ли T измеренный и T по формуле?</summary><p>Нет — формула верна только для малых углов (до ~15°). При больших амплитудах период немного больше.</p></details>
+</div>
+</div>
+<div class="lab__box">
+<h3>Для учителя</h3>
+<p>Работу удобно проводить на проекторе: класс по очереди называет длину нити, а учитель записывает точки. По наклону графика ученики сами получают g — это сильнее, чем подставить числа в формулу.</p>
+<p>Задание со звёздочкой: какой длины должен быть маятник, чтобы его период был ровно 2 с? <span class="muted">(≈ 0,99 м — «секундный маятник»)</span></p>
+</div>
+</div>
+<div class="hintbar"><div class="emo" data-e="think"></div><span>Оттяни груз мышью или пальцем — так можно задать любой угол. А теперь поставь «Юпитер» и посмотри, что станет с периодом.</span></div>
+</main>
+<footer class="footer"><div class="wrap"><div class="footer__bottom"><span>© <span data-year>2026</span> Фаза Понимания</span><span><a href="../index.html#labs">← Все лабораторные</a></span></div></div></footer>
+<script src="../js/catalog.js"></script>
+<script src="../js/kit.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/labs/pendulum.js"></script>
+<script src="../js/report.js"></script>
+</body>
+</html>
