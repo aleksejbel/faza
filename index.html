@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ru" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Фаза Понимания — интерактивные лабораторные и тесты по физике для ОГЭ и ЕГЭ</title>
+<meta name="description" content="Бесплатные интерактивные лабораторные работы по физике прямо в браузере: маятник, электрическое поле, закон Ома, преломление света. Тесты для подготовки к ОГЭ и ЕГЭ, задача дня и шпаргалки.">
+<meta name="keywords" content="физика, лабораторные работы онлайн, ОГЭ физика, ЕГЭ физика, тесты по физике, интерактивная физика, симуляции">
+<link rel="canonical" href="https://faza-fizika.ru/">
+<meta name="theme-color" content="#050b18">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Фаза Понимания">
+<meta property="og:title" content="Фаза Понимания — физика, которую можно потрогать">
+<meta property="og:description" content="Интерактивные лабораторные, тесты и задача дня для ОГЭ и ЕГЭ по физике. Бесплатно.">
+<meta property="og:url" content="https://faza-fizika.ru/">
+<meta property="og:image" content="https://faza-fizika.ru/img/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"Фаза Понимания","url":"https://faza-fizika.ru/",
+"description":"Интерактивные лабораторные и тесты по физике для ОГЭ и ЕГЭ",
+"potentialAction":{"@type":"SearchAction","target":"https://faza-fizika.ru/?q={query}","query-input":"required name=query"}}
+</script>
+</head>
+<body data-root="">
+<div class="atmo" aria-hidden="true"><div class="atmo__glow atmo__glow--a"></div><div class="atmo__glow atmo__glow--b"></div><div class="atmo__noise"></div></div>
+<div class="spot" aria-hidden="true"></div>
+<header class="nav">
+<div class="wrap nav__in">
+<a class="logo" href="#top" aria-label="Фаза Понимания — на главную">
+<svg viewBox="0 0 100 92" aria-hidden="true"><g stroke="#fff" stroke-width="5" fill="none" stroke-linejoin="round"><path d="M50 4 L96 88 H4 Z"/><path d="M50 34 L66 46 L62 66 H38 L34 46 Z" stroke-width="3.5"/></g><circle cx="50" cy="54" r="7" fill="#ffb35c"/></svg>
+<span>Фаза Понимания</span>
+</a>
+<nav class="nav__links" aria-label="Разделы">
+<a href="#labs">Лаборатория</a>
+<a href="#tests">Тесты</a>
+<a href="#zadacha">Задача дня</a>
+<a href="#about">Знакомство</a>
+<a href="#faq">Вопросы</a>
+</nav>
+<button class="nav__search" data-search aria-label="Поиск по сайту">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+<span>Поиск</span><kbd>Ctrl K</kbd>
+</button>
+<button class="nav__burger" aria-label="Меню"><span></span></button>
+</div>
+</header>
+<main>
+<section class="hero" id="top">
+<div class="wrap hero__grid">
+<div class="hero__text">
+<span class="kicker fade-in">физика · математика · ОГЭ · ЕГЭ</span>
+<h1 class="glow"><span class="line"><span>Фаза</span></span><span class="line"><span>Понимания</span></span></h1>
+<p class="hero__lead fade-in d2">Физика, которую можно потрогать. Интерактивные лабораторные прямо в браузере, тесты с разбором и задача дня — чтобы за формулой было видно явление.</p>
+<div class="hero__cta fade-in d3">
+<a class="btn btn--primary" href="#labs" data-magnet>В лабораторию
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a class="btn btn--ghost" href="#zadacha" data-magnet>Решить задачу дня</a>
+</div>
+<div class="hero__chips fade-in d3">
+<span class="chip">ОГЭ и ЕГЭ</span><span class="chip">студентам</span><span class="chip">учителям</span>
+</div>
+</div>
+<div class="hero__art" data-hero data-src="img/character.webp">
+<canvas aria-label="Персонаж Фазы Понимания: половина рисунка превращается в схему, курсор работает как рентген" role="img"></canvas>
+<div class="hero__hint"><i></i>наведи курсор — это рентген</div>
+</div>
+</div>
+<div class="hero__scroll">ЛИСТАЙ</div>
+</section>
+<section class="section section--tight" id="chto">
+<div class="wrap">
+<div class="hub" data-reveal>
+<a class="card hub__item" href="#labs"><span class="hub__ic">🧪</span><b><span data-count-labs>9</span> лабораторных</b><small>двигай, измеряй, получай отчёт</small></a>
+<a class="card hub__item" href="tests/index.html"><span class="hub__ic">📝</span><b>Банк тестов</b><small>ОГЭ · ЕГЭ · вуз, с решениями</small></a>
+<a class="card hub__item" href="#zadacha"><span class="hub__ic">🧠</span><b>Задача дня</b><small>каждый день новая</small></a>
+<a class="card hub__item" data-link="lifehacks" href="#"><span class="hub__ic">🎁</span><b>12 лайфхаков</b><small>бесплатный PDF к экзамену</small></a>
+</div>
+</div>
+</section>
+<section class="section" id="labs">
+<div class="wrap">
+<div class="section__head" data-reveal>
+<span class="kicker">01 / лаборатория</span>
+<h2>Лабораторные, которые <span class="accent">не надо собирать</span></h2>
+<p>Меняй параметры, записывай измерения — отчёт с таблицей и графиком соберётся сам. Для дома и для урока на проекторе.</p>
+</div>
+<div class="grid-cards is-collapsed" data-labs></div>
+<div class="more-row"><button class="btn btn--ghost" data-more>Показать все лабораторные</button></div>
+</div>
+</section>
+<section class="section" id="tests">
+<div class="wrap">
+<div class="section__head" data-reveal>
+<span class="kicker">02 / тесты</span>
+<h2>Проверь себя <span class="accent">до экзамена</span>, а не на нём</h2>
+<p>Теория, быстрые задачи и задачи второй части — по разделам, с объяснениями и эталонными решениями.</p>
+</div>
+<div class="levels" data-levels data-reveal></div>
+<div class="quick-tests" data-quick-tests></div>
+</div>
+</section>
+<section class="section" id="zadacha">
+<div class="wrap">
+<div class="section__head" data-reveal>
+<span class="kicker">03 / задача дня</span>
+<h2>Пять минут — <span class="accent">и мозг разогрет</span></h2>
+</div>
+<div class="card task" data-task data-reveal>
+<div>
+<span class="tag" data-task-tag></span>
+<p class="task__text" data-task-text style="margin-top:16px"></p>
+<form class="task__form" autocomplete="off">
+<input class="input" name="answer" inputmode="decimal" placeholder="Твой ответ (число)" aria-label="Ответ">
+<span class="mono muted" style="align-self:center" data-task-unit></span>
+<button class="btn btn--primary" data-magnet>Проверить</button>
+</form>
+<div class="task__result" aria-live="polite"></div>
+</div>
+<div class="emo task__emo" data-e="think" role="img" aria-label="Персонаж думает"></div>
+</div>
+</div>
+</section>
+<section class="section" id="about">
+<div class="wrap">
+<div class="section__head" data-reveal>
+<span class="kicker">04 / знакомство</span>
+<h2>Кто стоит за <span class="accent">«Фазой Понимания»</span></h2>
+<p>Образование, наука, преподавание — всё, что помогает объяснять физику так, чтобы за формулой было видно явление.</p>
+</div>
+<div class="about" data-about data-reveal></div>
+</div>
+</section>
+<section class="section section--tight" id="plus">
+<div class="wrap">
+<div class="card plus-strip" data-reveal>
+<div class="emo" data-e="laugh" role="img" aria-label="Персонаж смеётся"></div>
+<div><b>Фаза<span class="accent">+</span> — скоро</b><span>Расширенные лабы и разборы, сборники в PDF, наборы для учителей.</span></div>
+<a class="btn btn--outline btn--sm" data-link="plus" href="#">Узнать первым</a>
+</div>
+</div>
+</section>
+<section class="section" id="faq">
+<div class="wrap">
+<div class="section__head" data-reveal>
+<span class="kicker">05 / вопросы</span>
+<h2>Что обычно спрашивают</h2>
+</div>
+<div class="faq" data-reveal>
+<details><summary>Это правда бесплатно?</summary><p>Да. Все лабораторные, тесты и задача дня открыты без регистрации. Позже появится подписка «Фаза+» с расширенными материалами, но бесплатная часть никуда не денется.</p></details>
+<details><summary>Работает на телефоне?</summary><p>Да, всё адаптировано под смартфоны и планшеты. Лабораторные управляются касанием: заряды и лазер можно таскать пальцем.</p></details>
+<details><summary>Подходит для подготовки к ОГЭ и ЕГЭ?</summary><p>Да. Темы лабораторных и тестов взяты из кодификаторов ОГЭ и ЕГЭ, а в разборах отмечены типичные ловушки экзамена.</p></details>
+<details><summary>Можно использовать лабы на уроке?</summary><p>Конечно. Откройте лабораторную на проекторе или интерактивной доске — интерфейс крупный и понятный. Вопросы для класса есть внизу каждой страницы.</p></details>
+<details><summary>Можно сдать лабораторную как отчёт?</summary><p>Да. В каждой лабе есть кнопка «📄 Отчёт»: впиши фамилию и вывод — таблицы, график с уравнением и расчёты подставятся сами. Отчёт можно распечатать или сохранить в PDF.</p></details>
+<details><summary>Где сохраняются результаты тестов?</summary><p>Только в вашем браузере, на этом устройстве. Мы не собираем личные данные.</p></details>
+<details><summary>Нашёл ошибку или есть идея для лабы</summary><p>Напишите в сообщения группы ВКонтакте — кнопка «Задать вопрос» внизу страницы. Лучшие идеи станут новыми лабораторными.</p></details>
+</div>
+</div>
+</section>
+</main>
+<footer class="footer">
+<div class="wrap">
+<div class="footer__grid">
+<div>
+<a class="logo" href="#top"><svg viewBox="0 0 100 92" aria-hidden="true"><g stroke="#fff" stroke-width="5" fill="none" stroke-linejoin="round"><path d="M50 4 L96 88 H4 Z"/><path d="M50 34 L66 46 L62 66 H38 L34 46 Z" stroke-width="3.5"/></g><circle cx="50" cy="54" r="7" fill="#ffb35c"/></svg><span>Фаза Понимания</span></a>
+<p class="footer__big">Понять, <span class="accent">а не зазубрить.</span></p>
+<div class="btn-row">
+<a class="btn btn--primary btn--sm" data-link="vk" href="#">Группа ВКонтакте</a>
+<a class="btn btn--ghost btn--sm" data-link="ask" href="#">Задать вопрос</a>
+</div>
+</div>
+<div>
+<h4>Разделы</h4>
+<a href="#labs">Лаборатория</a><a href="#zadacha">Задача дня</a><a href="#tests">Тесты</a><a href="#plus">Фаза+</a><a href="#faq">Вопросы</a>
+</div>
+<div>
+<h4>Полезное</h4>
+<a data-link="lifehacks" href="#">12 лайфхаков (PDF)</a><a data-link="vk" href="#">Задача дня во ВКонтакте</a><a href="#" data-search>Поиск по сайту</a>
+</div>
+</div>
+<div class="footer__bottom"><span>© <span data-year>2026</span> Фаза Понимания</span><span>Сделано с любовью к физике ⚛</span></div>
+</div>
+</footer>
+<script src="js/catalog.js"></script>
+<script src="js/kit.js"></script>
+<script src="js/main.js"></script>
+<script src="js/previews.js"></script>
+<script src="js/hero.js"></script>
+<script src="js/about.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /tools/
+Disallow: /docs/
+Disallow: /tests/_ШАБЛОН_ТЕСТА.html
+
+Sitemap: https://faza-fizika.ru/sitemap.xml

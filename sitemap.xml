@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Карта сайта для Яндекса и Google. При добавлении новой лабы или теста добавьте сюда строку <url>…</url>. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://faza-fizika.ru/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://faza-fizika.ru/labs/pendulum.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://faza-fizika.ru/labs/projectile.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://faza-fizika.ru/labs/field.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://faza-fizika.ru/labs/ohm.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://faza-fizika.ru/labs/spring.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://faza-fizika.ru/labs/archimedes.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://faza-fizika.ru/labs/lens.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://faza-fizika.ru/labs/circuit.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://faza-fizika.ru/labs/refraction.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://faza-fizika.ru/tests/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://faza-fizika.ru/tests/mock.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://faza-fizika.ru/teacher.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://faza-fizika.ru/tests/kinematika.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://faza-fizika.ru/tests/nyuton.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://faza-fizika.ru/tests/elektrichestvo.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+</urlset>
