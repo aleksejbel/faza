@@ -844,3 +844,19 @@ body.menu-open .mega__in { transform: none; }
 }
 @media (max-width: 420px) { .nav__burger-t { display: none; } .nav__burger { width: 44px; padding: 0; } .nav__burger span { left: 50%; } }
 body.menu-open .fb { opacity: 0; pointer-events: none; }
+.grade-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; }
+.grade-tabs button { padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line-2); background: rgba(255,255,255,.03); color: var(--text-2); font: inherit; font-size: 14px; cursor: pointer; transition: .2s; }
+.grade-tabs button:hover { border-color: var(--blue-hi); color: var(--text); }
+.grade-tabs button.is-on { background: var(--orange); border-color: var(--orange); color: #1a0f02; font-weight: 600; }
+.grade-prog { border: 1px solid var(--line); background: var(--panel); border-radius: 18px; padding: 18px 20px; margin-bottom: 20px; }
+.grade-prog__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; margin-bottom: 10px; }
+.grade-prog__head .muted { font-size: 13px; }
+.grade-prog__cnt { margin-left: auto; font-family: var(--mono); font-size: 12px; color: var(--orange-hi); }
+.grade-prog__list { margin: 0; padding-left: 22px; display: grid; gap: 4px; }
+.grade-prog__list li { padding: 6px 0; border-bottom: 1px dashed var(--line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px; color: var(--text-2); }
+.grade-prog__list li:last-child { border-bottom: 0; }
+.grade-prog__list li.is-ok a { color: var(--text); text-decoration: none; border-bottom: 1px solid rgba(127,182,255,.4); }
+.grade-prog__list li.is-ok a:hover { color: var(--blue-hi); }
+.grade-prog__list li { display: list-item; }
+.grade-prog__list li > .tag { float: right; margin-left: 12px; }
+.lab-card[hidden], .more-row[hidden], .grade-prog[hidden] { display: none !important; }
